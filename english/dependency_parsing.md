@@ -24,15 +24,16 @@ arcs from heads to dependents (+ indicates the dependent).
 
 Models are evaluated on the [Stanford Dependency](https://nlp.stanford.edu/software/dependencies_manual.pdf)
 conversion (**v3.3.0**) of the Penn Treebank with __predicted__ POS-tags. Punctuation symbols
-are excluded from the evaluation. Evaluation metrics are unlabeled attachment score (UAS) and
-labeled attachment score (LAS). Here, we also mention the predicted POS tagging accuracy.
+are excluded from the evaluation. Evaluation metrics are unlabeled attachment score (UAS) and labeled attachment score (LAS). UAS does not consider the semantic relation (e.g. Subj) used to label the attachment between the head and the child, while LAS requires a semantic correct label for each attachment.Here, we also mention the predicted POS tagging accuracy.
 
 | Model           | POS | UAS | LAS | Paper / Source | Code |
 | ------------- | :-----: | :-----:| :-----:| --- | --- |
+| CVT + Multi-Task (Clark et al., 2018) | ---  | 96.61 | 95.02 | [Semi-Supervised Sequence Modeling with Cross-View Training](https://arxiv.org/abs/1809.08370) | [Official](https://github.com/tensorflow/models/tree/master/research/cvt_text) |
 | Deep Biaffine (Dozat and Manning, 2017) | 97.3 | 95.44 | 93.76 | [Deep Biaffine Attention for Neural Dependency Parsing](https://arxiv.org/abs/1611.01734) | [Official](https://github.com/tdozat/Parser-v1) |
 | jPTDP (Nguyen and Verspoor, 2018) | 97.97 | 94.51 | 92.87  | [An improved neural network model for joint POS tagging and dependency parsing](https://arxiv.org/abs/1807.03955) | [Official](https://github.com/datquocnguyen/jPTDP) |
 | Andor et al. (2016) | 97.44 | 94.61 | 92.79 | [Globally Normalized Transition-Based Neural Networks](https://www.aclweb.org/anthology/P16-1231) | |
 | Distilled neural FOG (Kuncoro et al., 2016) | 97.3 | 94.26 | 92.06 | [Distilling an Ensemble of Greedy Dependency Parsers into One MST Parser](https://arxiv.org/abs/1609.07561) | |
+| Distilled transition-based parser (Liu et al., 2018) | 97.3 | 94.05 | 92.14 | [Distilling Knowledge for Search-based Structured Prediction](http://aclweb.org/anthology/P18-1129) | [Official](https://github.com/Oneplus/twpipe) |
 | Weiss et al. (2015) | 97.44 | 93.99 | 92.05 | [Structured Training for Neural Network Transition-Based Parsing](http://anthology.aclweb.org/P/P15/P15-1032.pdf) | |
 | BIST transition-based parser (Kiperwasser and Goldberg, 2016) | 97.3 | 93.9 | 91.9 | [Simple and Accurate Dependency Parsing Using Bidirectional LSTM Feature Representations](https://aclweb.org/anthology/Q16-1023) | [Official](https://github.com/elikip/bist-parser/tree/master/barchybrid/src) | 
 | Arc-hybrid (Ballesteros et al., 2016) | 97.3 | 93.56 | 91.42 | [Training with Exploration Improves a Greedy Stack-LSTM Parser](https://arxiv.org/abs/1603.03793) | |
