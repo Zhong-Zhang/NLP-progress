@@ -50,8 +50,6 @@ evaluated based on accuracy on both individual and joint slot tracking.
 | Neural belief tracker (Mrkšić et al., 2017) | 96.5 | 90 | 84 | 94 | 73.4 | [Neural Belief Tracker: Data-Driven Dialogue State Tracking](https://arxiv.org/abs/1606.03777) |
 | RNN (Henderson et al., 2014) | 95.7 | 92 | 86 | 86 | 69 | [Robust dialog state tracking using delexicalised recurrent neural networks and unsupervised gate](http://svr-ftp.eng.cam.ac.uk/~sjy/papers/htyo14.pdf) | 
 
-[Go back to the README](../README.md)
-
 ### Wizard-of-Oz
 
 The [WoZ 2.0 dataset](https://arxiv.org/pdf/1606.03777.pdf) is a newer dialogue state tracking dataset whose evaluation is detached from the noisy output of speech recognition systems. Similar to DSTC2, it covers the restaurant search domain and has identical evaluation.
@@ -62,6 +60,19 @@ The [WoZ 2.0 dataset](https://arxiv.org/pdf/1606.03777.pdf) is a newer dialogue 
 | Zhong et al. (2018) | 97.1 | 88.1 | [Global-locally Self-attentive Dialogue State Tracker](https://arxiv.org/abs/1805.09655) |
 | Neural belief tracker (Mrkšić et al., 2017) | 96.5 | 84.4 | [Neural Belief Tracker: Data-Driven Dialogue State Tracking](https://arxiv.org/abs/1606.03777) |
 | RNN (Henderson et al., 2014) | 87.1 | 70.8 | [Robust dialog state tracking using delexicalised recurrent neural networks and unsupervised gate](http://svr-ftp.eng.cam.ac.uk/~sjy/papers/htyo14.pdf) | 
+
+
+### MultiWOZ
+
+The [MultiWOZ dataset](https://arxiv.org/abs/1810.00278) is a fully-labeled collection of human-human written conversations spanning over multiple domains and topics. At a size of 10k dialogues, it is at least one order of magnitude larger than all previous annotated task-oriented corpora. The dialogue are set between a tourist and a clerk in the information. It spans over 7 domains.
+
+
+| Model           | Joint  |  Slot  |  Paper / Source |
+| ------------- |  :-----:| :-----:| --- |
+| Ramadan et al. (2018) | 15.57 |	89.53 | [Large-Scale Multi-Domain Belief Tracking with Knowledge Sharing](https://www.aclweb.org/anthology/P18-2069) |
+| Zhong et al. (2018) | 35.57 |	95.44  | [Global-locally Self-attentive Dialogue State Tracker](https://arxiv.org/abs/1805.09655) |
+| Nouri and Hosseini-Asl (2019) | 36.27 |	98.42 | [Toward Scalable Neural Dialogue State Tracking Model](https://arxiv.org/pdf/1812.00899.pdf) |
+| Wu et al. (2019) |48.62 | 	96.92| [Transferable Multi-Domain State Generator for Task-OrientedDialogue System](https://arxiv.org/pdf/1905.08743.pdf) |
 
 ## Retrieval-based Chatbot
 The main task retrieval-based chatbot is response selection, that aims to find correct responses from a pre-defined index. 
@@ -75,4 +86,15 @@ The [Ubuntu Corpus](https://arxiv.org/pdf/1506.08909.pdf) contains almost 1 mill
 | Multi-View (Zhou et al. 2017) | 90.8 | 66.2 | [Multi-view Response Selection for Human-Computer Conversation](https://aclweb.org/anthology/D16-1036) |
 | Bi-LSTM (Kadlec et al. 2015) | 89.5 | 63.0 | [Improved Deep Learning Baselines for Ubuntu Corpus Dialogs](https://arxiv.org/pdf/1510.03753.pdf) |
 
+## Generative-based Chatbot
+The main task of generative-based chatbot is to generate consistent and engaging response given the context.
+### Personalized Chit-chat
 
+The task of persinalized chit-chat dialogue generation is first proposed by [PersonaChat](https://arxiv.org/pdf/1801.07243.pdf). The motivation is to enhance the engagingness and consistency of chit-chat bots via endowing explicit personas to agents. Here the `persona` is defined as several profile natural language sentences like "I weight 300 pounds.". NIPS 2018 has hold a competition [The Conversational Intelligence Challenge 2 (ConvAI2)](http://convai.io/) based on the dataset. The Evaluation metric is F1, Hits@1 and ppl. F1 evaluates on the word-level, and Hits@1 represents the probability of the real next utterance ranking the highest according to the model, while ppl is perplexity for language modeling. The following results are reported on dev set (test set is still hidden), almost of them are borrowed from [ConvAI2 Leaderboard](https://github.com/DeepPavlov/convai/blob/master/leaderboards.md).
+
+| Model           | F1 | Hits@1 | ppl | Paper / Source | Code |
+| -------------   | :---------: | :---------:| :--------: | ---------------| ------------- |
+| TransferTransfo (Thomas et al. 2019) | 19.09 | 82.1 | 17.51 | [TransferTransfo: A Transfer Learning Approach for Neural Network Based Conversational Agents](https://arxiv.org/pdf/1901.08149.pdf) | [Code](https://github.com/huggingface/transfer-learning-conv-ai) |
+| Lost In Conversation | 17.79 | - | 17.3 | [NIPS 2018 Workshop Presentation](http://convai.io/NeurIPSParticipantSlides.pptx) | [Code](https://github.com/atselousov/transformer_chatbot) |
+| Seq2Seq + Attention (Dzmitry et al. 2014) | 16.18 | 12.6 | 29.8 | [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf) | [Code](https://github.com/facebookresearch/ParlAI/tree/master/projects/convai2/baselines/seq2seq) |
+| KV Profile Memory (Zhang et al. 2018) | 11.9 | 55.2 | - | [Personalizing Dialogue Agents: I have a dog, do you have pets too?](https://arxiv.org/pdf/1801.07243.pdf) | [Code](https://github.com/facebookresearch/ParlAI/tree/master/projects/convai2/baselines/kvmemnn)
