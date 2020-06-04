@@ -5,7 +5,7 @@
 ### English
 
 - [Automatic speech recognition](english/automatic_speech_recognition.md)
-- [CCG supertagging](english/ccg_supertagging.md)
+- [CCG](english/ccg.md)
 - [Common sense](english/common_sense.md)
 - [Constituency parsing](english/constituency_parsing.md)
 - [Coreference resolution](english/coreference_resolution.md)
@@ -15,6 +15,7 @@
 - [Entity linking](english/entity_linking.md)
 - [Grammatical error correction](english/grammatical_error_correction.md)
 - [Information extraction](english/information_extraction.md)
+- [Intent Detection and Slot Filling](english/intent_detection_slot_filling.md)
 - [Language modeling](english/language_modeling.md)
 - [Lexical normalization](english/lexical_normalization.md)
 - [Machine translation](english/machine_translation.md)
@@ -40,17 +41,6 @@
 - [Text classification](english/text_classification.md)
 - [Word sense disambiguation](english/word_sense_disambiguation.md)
 
-### Chinese
-
-- [Entity linking](chinese/chinese.md#entity-linking)
-- [Chinese word segmentation](chinese/chinese_word_segmentation.md)
-
-### Hindi
-
-- [Chunking](hindi/hindi.md#chunking)
-- [Part-of-speech tagging](hindi/hindi.md#part-of-speech-tagging)
-- [Machine Translation](hindi/hindi.md#machine-translation)
-
 ### Vietnamese
 
 - [Dependency parsing](vietnamese/vietnamese.md#dependency-parsing)
@@ -58,6 +48,47 @@
 - [Named entity recognition](vietnamese/vietnamese.md#named-entity-recognition)
 - [Part-of-speech tagging](vietnamese/vietnamese.md#part-of-speech-tagging)
 - [Word segmentation](vietnamese/vietnamese.md#word-segmentation)
+
+### Hindi
+
+- [Chunking](hindi/hindi.md#chunking)
+- [Part-of-speech tagging](hindi/hindi.md#part-of-speech-tagging)
+- [Machine Translation](hindi/hindi.md#machine-translation)
+
+### Chinese
+
+- [Entity linking](chinese/chinese.md#entity-linking)
+- [Chinese word segmentation](chinese/chinese_word_segmentation.md)
+- [Question answering](chinese/question_answering.md)
+
+### French
+
+- [Question answering](french/question_answering.md)
+
+### Russian
+
+- [Question answering](russian/question_answering.md)
+
+### Spanish
+
+- [Entity linking](spanish/entity_linking.md#entity-linking)
+
+### Portuguese
+
+- [Question Answering](portuguese/question_answering.md)
+
+### Korean
+
+- [Question Answering](korean/question_answering.md)
+
+### Nepali
+
+- [Machine Translation](nepali/nepali.md#machine-translation)
+
+### Bengali
+- [Part-of-speech Tagging](bengali/part_of_speech_tagging.md)
+
+
 
 This document aims to track the progress in Natural Language Processing (NLP) and give an overview
 of the state-of-the-art (SOTA) across the most common NLP tasks and their corresponding datasets.
@@ -111,12 +142,12 @@ For adding a new dataset or task, you can also follow the steps above. Alternati
 In both cases, follow the steps below:
 
 1. If your task is completely new, create a new file and link to it in the table of contents above.
-1. If not, add your task or dataset to the respective section of the corresponding file (in alphabetical order).
-1. Briefly describe the dataset/task and include relevant references. 
-1. Describe the evaluation setting and evaluation metric.
-1. Show how an annotated example of the dataset/task looks like.
-1. Add a download link if available.
-1. Copy the below table and fill in at least two results (including the state-of-the-art)
+2. If not, add your task or dataset to the respective section of the corresponding file (in alphabetical order).
+3. Briefly describe the dataset/task and include relevant references. 
+4. Describe the evaluation setting and evaluation metric.
+5. Show how an annotated example of the dataset/task looks like.
+6. Add a download link if available.
+7. Copy the below table and fill in at least two results (including the state-of-the-art)
   for your dataset/task (change Score to the metric of your dataset). If your dataset/task
   has multiple metrics, add them to the right of `Score`.
 1. Submit your change as a pull request.

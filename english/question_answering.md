@@ -9,6 +9,7 @@ Question answering is the task of answering a question.
 - [Reading comprehension](#reading-comprehension)
   - [CliCR](#clicr)
   - [CNN / Daily Mail](#cnn--daily-mail)
+  - [CODAH](#codah)
   - [CoQA](#coqa)
   - [HotpotQA](#hotpotqa)
   - [MS MARCO](#ms-marco)
@@ -19,10 +20,12 @@ Question answering is the task of answering a question.
   - [RACE](#race)
   - [SQuAD](#squad)
   - [Story Cloze Test](#story-cloze-test)
+  - [SWAG](#swag)
   - [Recipe QA](#recipeqa)
   - [NarrativeQA](#narrativeqa)
   - [DuoRC](#duorc)
   - [DROP](#drop)
+  - [Cosmos QA](#cosmos-qa)
 - [Open-domain Question Answering](#open-domain-question-answering)
   - [DuReader](#dureader)
   - [Quasar](#quasar)
@@ -53,7 +56,7 @@ The public data, further task details and public leaderboard are available on th
 
 Most current question answering datasets frame the task as reading comprehension where the question is about a paragraph
 or document and the answer often is a span in the document. The Machine Reading group
-at UCL also provides an [overview of reading comprehension tasks](https://uclmr.github.io/ai4exams/data.html).
+at UCL also provides an [overview of reading comprehension tasks](https://uclnlp.github.io/ai4exams/data.html).
 
 ### CliCR
 
@@ -103,6 +106,11 @@ Example:
 | Neural net (Chen et al., 2016) | 72.4 | 75.8 | [A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task](https://www.aclweb.org/anthology/P16-1223) |
 | Classifier (Chen et al., 2016) | 67.9 | 68.3 | [A Thorough Examination of the CNN/Daily Mail Reading Comprehension Task](https://www.aclweb.org/anthology/P16-1223) |
 | Impatient Reader (Hermann et al., 2015) | 63.8 | 68.0 | [Teaching Machines to Read and Comprehend](https://arxiv.org/abs/1506.03340) |
+
+### CODAH
+[CODAH](https://arxiv.org/abs/1904.04365) is an adversarially-constructed evaluation dataset with 2.8k questions for testing common sense. CODAH forms a challenging extension to the SWAG dataset, which tests commonsense knowledge using sentence-completion questions that describe situations observed in video.
+
+The dataset and more information can be found [here](https://github.com/Websail-NU/CODAH)
 
 ### CoQA
 
@@ -193,10 +201,13 @@ on middle school examinations (RACE-m), high school examinations (RACE-h), and o
 
 The public leaderboard is available on the [RACE leaderboard](http://www.qizhexie.com//data/RACE_leaderboard).
 
-| Model           | RACE-m | RACE-h | RACE | Paper / Source |
-| ------------- | :-----:| :-----:| :-----:| --- |
-| Finetuned Transformer LM (Radford et al., 2018) | 62.9 | 57.4 | 59.0 | [Improving Language Understanding by Generative Pre-Training](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf) |
-| BiAttention MRU (Tay et al., 2018) | 60.2 | 50.3 | 53.3 | [Multi-range Reasoning for Machine Comprehension](https://arxiv.org/abs/1803.09074) |
+| Model           | RACE-m | RACE-h | RACE | Paper | Code |
+| ------------- | :-----:| :-----:| :-----:| --- | --- |
+| XLNet (Yang et al., 2019) | 85.45 | 80.21 | 81.75 | [XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237.pdf) | [Official](https://github.com/zihangdai/xlnet/) |
+| OCN_large (Ran et al., 2019) | 76.7 | 69.6 | 71.7 | [Option Comparison Network for Multiple-choice Reading Comprehension](https://arxiv.org/pdf/1903.03033.pdf) | |
+| DCMN_large (Zhang et al., 2019) | 73.4 | 68.1 | 69.7 | [Dual Co-Matching Network for Multi-choice Reading Comprehension](https://arxiv.org/pdf/1901.09381.pdf) | |
+| Finetuned Transformer LM (Radford et al., 2018) | 62.9 | 57.4 | 59.0 | [Improving Language Understanding by Generative Pre-Training](https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf) | [Official](https://github.com/openai/finetune-transformer-lm) |
+| BiAttention MRU (Tay et al., 2018) | 60.2 | 50.3 | 53.3 | [Multi-range Reasoning for Machine Comprehension](https://arxiv.org/abs/1803.09074) | |
 
 ### SQuAD
 
@@ -223,6 +234,12 @@ More details are available on the [Story Cloze Test Challenge](https://competiti
 | Liu et al. (2018) | 78.7 | [Narrative Modeling with Memory Chains and Semantic Supervision](http://aclweb.org/anthology/P18-2045) | [Official](https://github.com/liufly/narrative-modeling)
 | Hidden Coherence Model (Chaturvedi et al., 2017) | 77.6 | [Story Comprehension for Predicting What Happens Next](http://aclweb.org/anthology/D17-1168) |
 | val-LS-skip (Srinivasan et al., 2018) | 76.5 | [A Simple and Effective Approach to the Story Cloze Test](http://aclweb.org/anthology/N18-2015) |
+
+### SWAG
+
+[SWAG](https://arxiv.org/abs/1808.05326) (Situations With Adversarial Generations) is a large-scale dataset for the task of grounded commonsense inference, unifying natural language inference and physically grounded reasoning. The dataset consists of 113k multiple choice questions about grounded situations. Each question is a video caption from LSMDC or ActivityNet Captions, with four answer choices about what might happen next in the scene. The correct answer is the (real) video caption for the next event in the video; the three incorrect answers are adversarially generated and human verified, so as to fool machines but not humans.
+
+The public leaderboard is available on the [AI2 website] (https://leaderboard.allenai.org/swag/submissions/public).
 
 ### RecipeQA
 
@@ -256,6 +273,10 @@ DuoRC pushes the NLP community to address challenges on incorporating knowledge 
 ### DROP
 
 [DROP](https://allennlp.org/drop) is a crowdsourced, adversarially-created, 96k-question benchmark, in which a system must resolve references in a question, perhaps to multiple input positions, and perform discrete operations over them (such as addition, counting, or sorting). These operations require a much more comprehensive understanding of the content of paragraphs than what was necessary for prior datasets.
+
+### Cosmos QA
+
+[Cosmos QA](https://wilburone.github.io/cosmos/) is a large-scale dataset of 35.6K problems that require commonsense-based reading comprehension, formulated as multiple-choice questions. It focuses on reading between the lines over a diverse collection of people's everyday narratives, asking questions concerning on the likely causes or effects of events that require reasoning beyond the exact text spans in the context.
 
 ## Open-domain Question Answering
 

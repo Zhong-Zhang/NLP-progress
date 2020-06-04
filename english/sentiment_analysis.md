@@ -12,6 +12,9 @@ included per movie. Models are evaluated based on accuracy.
 
 | Model           | Accuracy  |  Paper / Source |
 | ------------- | :-----:| --- |
+| XLNet (Yang et al., 2019) | 96.21 | [XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237.pdf) |
+| BERT_large+ITPT (Sun et al., 2019) | 95.79 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
+| BERT_base+ITPT (Sun et al., 2019) | 95.63 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
 | ULMFiT (Howard and Ruder, 2018) | 95.4 | [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146) |
 | Block-sparse LSTM (Gray et al., 2017) | 94.99 | [GPU Kernels for Block-Sparse Weights](https://s3-us-west-2.amazonaws.com/openai-assets/blocksparse/blocksparsepaper.pdf) |
 | oh-LSTM (Johnson and Zhang, 2016) | 94.1 | [Supervised and Semi-Supervised Text Categorization using LSTM for Region Embeddings](https://arxiv.org/abs/1602.02373) |
@@ -21,7 +24,7 @@ included per movie. Models are evaluated based on accuracy.
 ### SST
 
 The [Stanford Sentiment Treebank](https://nlp.stanford.edu/sentiment/index.html) 
-contains of 215,154 phrases with fine-grained sentiment labels in the parse trees
+contains 215,154 phrases with fine-grained sentiment labels in the parse trees
 of 11,855 sentences in movie reviews. Models are evaluated either on fine-grained
 (five-way) or binary classification based on accuracy.
 
@@ -29,21 +32,25 @@ Fine-grained classification (SST-5, 94,2k examples):
 
 | Model           | Accuracy |  Paper / Source |
 | ------------- | :-----:| --- |
+| BCN+Suffix BiLSTM-Tied+CoVe (Brahma, 2018) | 56.2 | [Improved Sentence Modeling using Suffix Bidirectional LSTM](https://arxiv.org/pdf/1805.07340v2.pdf) |
 | BCN+ELMo (Peters et al., 2018) | 54.7 | [Deep contextualized word representations](https://arxiv.org/abs/1802.05365) |
 | BCN+Char+CoVe (McCann et al., 2017) | 53.7 | [Learned in Translation: Contextualized Word Vectors](https://arxiv.org/abs/1708.00107) |
 
 Binary classification (SST-2, 56.4k examples):
 
-| Model           | Accuracy  |  Paper / Source |
-| ------------- | :-----:| --- |
-| MT-DNN (Liu et al., 2019) | 95.6 | [Multi-Task Deep Neural Networks for Natural Language Understanding](https://arxiv.org/abs/1901.11504) |
-| Bidirectional Encoder Representations from Transformers (Devlin et al., 2018) | 94.9 | [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) |
-| Block-sparse LSTM (Gray et al., 2017) | 93.2 | [GPU Kernels for Block-Sparse Weights](https://s3-us-west-2.amazonaws.com/openai-assets/blocksparse/blocksparsepaper.pdf) |
-| bmLSTM (Radford et al., 2017) | 91.8 | [Learning to Generate Reviews and Discovering Sentiment](https://arxiv.org/abs/1704.01444) |
-| Single layer bilstm distilled from BERT (Tang et al., 2019)| 90.7 |[Distilling Task-Specific Knowledge from BERT into Simple Neural Networks](https://arxiv.org/abs/1903.12136)|
-| BCN+Char+CoVe (McCann et al., 2017) | 90.3 | [Learned in Translation: Contextualized Word Vectors](https://arxiv.org/abs/1708.00107)
-| Neural Semantic Encoder (Munkhdalai and Yu, 2017) | 89.7 | [Neural Semantic Encoders](http://www.aclweb.org/anthology/E17-1038) | 
-| BLSTM-2DCNN (Zhou et al., 2017) | 89.5 | [Text Classification Improved by Integrating Bidirectional LSTM with Two-dimensional Max Pooling](http://www.aclweb.org/anthology/C16-1329) |
+| Model           | Accuracy  |  Paper / Source | Code |
+| ------------- | :-----:| --- | --- |
+| XLNet-Large (ensemble) (Yang et al., 2019) | 96.8 | [XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237.pdf) | [Official](https://github.com/zihangdai/xlnet/) |
+| MT-DNN-ensemble (Liu et al., 2019) | 96.5 | [Improving Multi-Task Deep Neural Networks via Knowledge Distillation for Natural Language Understanding](https://arxiv.org/pdf/1904.09482.pdf) | [Official](https://github.com/namisan/mt-dnn/) |
+| Snorkel MeTaL(ensemble) (Ratner et al., 2018) | 96.2 | [Training Complex Models with Multi-Task Weak Supervision](https://arxiv.org/pdf/1810.02840.pdf) | [Official](https://github.com/HazyResearch/metal) |
+| MT-DNN (Liu et al., 2019) | 95.6 | [Multi-Task Deep Neural Networks for Natural Language Understanding](https://arxiv.org/abs/1901.11504) | [Official](https://github.com/namisan/mt-dnn/) |
+| Bidirectional Encoder Representations from Transformers (Devlin et al., 2018) | 94.9 | [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) | [Official](https://github.com/google-research/bert) |
+| Block-sparse LSTM (Gray et al., 2017) | 93.2 | [GPU Kernels for Block-Sparse Weights](https://s3-us-west-2.amazonaws.com/openai-assets/blocksparse/blocksparsepaper.pdf) | [Offical](https://github.com/openai/blocksparse) |
+| bmLSTM (Radford et al., 2017) | 91.8 | [Learning to Generate Reviews and Discovering Sentiment](https://arxiv.org/abs/1704.01444) | [Unoffical](https://github.com/NVIDIA/sentiment-discovery) |
+| Single layer bilstm distilled from BERT (Tang et al., 2019)| 90.7 |[Distilling Task-Specific Knowledge from BERT into Simple Neural Networks](https://arxiv.org/abs/1903.12136)|  |
+| BCN+Char+CoVe (McCann et al., 2017) | 90.3 | [Learned in Translation: Contextualized Word Vectors](https://arxiv.org/abs/1708.00107) | [Official](https://github.com/salesforce/cove) |
+| Neural Semantic Encoder (Munkhdalai and Yu, 2017) | 89.7 | [Neural Semantic Encoders](http://www.aclweb.org/anthology/E17-1038) | |
+| BLSTM-2DCNN (Zhou et al., 2017) | 89.5 | [Text Classification Improved by Integrating Bidirectional LSTM with Two-dimensional Max Pooling](http://www.aclweb.org/anthology/C16-1329) | |
 
 ### Yelp
 
@@ -55,6 +62,9 @@ Fine-grained classification:
 
 | Model           | Error  |  Paper / Source |
 | ------------- | :-----:| --- |
+| XLNet (Yang et al., 2019) | 27.80 | [XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237.pdf) |
+| BERT_large+ITPT (Sun et al., 2019) | 28.62 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
+| BERT_base+ITPT (Sun et al., 2019) | 29.42 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
 | ULMFiT (Howard and Ruder, 2018) | 29.98 | [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146) |
 | DPCNN (Johnson and Zhang, 2017) | 30.58 | [Deep Pyramid Convolutional Neural Networks for Text Categorization](http://aclweb.org/anthology/P17-1052) |
 | CNN (Johnson and Zhang, 2016) | 32.39 | [Supervised and Semi-Supervised Text Categorization using LSTM for Region Embeddings](https://arxiv.org/abs/1602.02373) |
@@ -64,6 +74,9 @@ Binary classification:
 
 | Model           | Error |  Paper / Source |
 | ------------- | :-----:| --- |
+| XLNet (Yang et al., 2019) | 1.55 | [XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/pdf/1906.08237.pdf) |
+| BERT_large+ITPT (Sun et al., 2019) | 1.81 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
+| BERT_base+ITPT (Sun et al., 2019) | 1.92 | [How to Fine-Tune BERT for Text Classification?](https://arxiv.org/pdf/1905.05583.pdf) |
 | ULMFiT (Howard and Ruder, 2018) | 2.16 | [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146) |
 | DPCNN (Johnson and Zhang, 2017) | 2.64 | [Deep Pyramid Convolutional Neural Networks for Text Categorization](http://aclweb.org/anthology/P17-1052) |
 | CNN (Johnson and Zhang, 2016) | 2.90 | [Supervised and Semi-Supervised Text Categorization using LSTM for Region Embeddings](https://arxiv.org/abs/1602.02373) |
@@ -147,6 +160,8 @@ Subtask 2 results:
 
 | Model           | Restaurant (acc) | Laptop (acc) |  Paper / Source |  Code |
 | ------------- | :-----:| :-----:| --- | --- |
+| BERT-ADA (Rietzler, Alexander, et al., 2019) | 87.89 | 80.23 | [Adapt or Get Left Behind: Domain Adaptation through BERT Language Model Finetuning for Aspect-Target Sentiment Classification](https://arxiv.org/pdf/1908.11860.pdf) | [official](https://github.com/deepopinion/domain-adapted-atsc)
+| LCF-BERT (Zeng, Yang, et al., 2019) | 87.14 | 82.45 | [LCF: A Local Context Focus Mechanism for Aspect-Based Sentiment Classification](https://www.mdpi.com/2076-3417/9/16/3389/pdf) | [official](https://github.com/yangheng95/LCF-ABSA) / [Link](https://github.com/songyouwei/ABSA-PyTorch/blob/master/models/lcf_bert.py)
 | BERT-PT (Hu, Xu, et al., 2019) | 84.95 | 78.07 | [BERT Post-Training for Review Reading Comprehension and Aspect-based Sentiment Analysis](https://arxiv.org/pdf/1904.02232.pdf) | [official](https://github.com/howardhsu/BERT-for-RRC-ABSA)
 | AOA (Huang, Binxuan, et al., 2018) | 81.20 | 74.50 | [Aspect Level Sentiment Classification with Attention-over-Attention Neural Networks](https://arxiv.org/pdf/1804.06536.pdf) | [Link](https://github.com/songyouwei/ABSA-PyTorch/blob/master/models/aoa.py)
 | TNet (Li, Xin, et al., 2018) | 80.79 | 76.01 | [Transformation Networks for Target-Oriented Sentiment Classification](http://aclweb.org/anthology/P18-1087) | [Official](https://github.com/lixin4ever/TNet) / [Link](https://github.com/songyouwei/ABSA-PyTorch/blob/master/models/tnet_lf.py)
@@ -162,13 +177,14 @@ This is the same task on sentiment classification, where the given text is a rev
 
 | Model              | IMDB (acc) | Yelp 2013 (acc) | Yelp 2014 (acc) | Paper / Source | Code |
 | ------------------ | :--------: | :-------------: | :-------------: | -------------- | ---- |
-| BiLSTM + linear-basis-cust (Kim, Jihyeok, et al., 2019) | - | 67.1 | - | [Categorical Metadata Representation for Customized Text Classification](https://arxiv.org/pdf/1902.05196.pdf) | [Link](https://github.com/zizi1532/BasisCustomize) |
-| CMA (Ma, Dehong, et al., 2017) | 54.0 | 66.4 | 67.6 | [Cascading Multiway Attention for Document-level Sentiment Classification](http://aclweb.org/anthology/I17-1064) | - |
-| DUPMN (Long, Yunfei, et al., 2018) | 53.9 | 66.2 | 67.6 | [Dual Memory Network Model for Biased Product Review Classification](http://aclweb.org/anthology/W18-6220) | - |
-| HCSC (Amplayo, Reinald Kim, et al., 2018) | 54.2 | 65.7 | - | [Cold-Start Aware User and Product Attention for Sentiment Classification](http://aclweb.org/anthology/P18-1236) | [Link](https://github.com/rktamplayo/HCSC) |
-| NSC (Chen, Huimin, et al., 2016) | 53.3 | 65.0 | 66.7 | [Neural Sentiment Classification with User and Product Attention](http://aclweb.org/anthology/D16-1171) | [Link](https://github.com/thunlp/NSC) |
-| UPDMN (Dou, Zi-Yi, 2017) | 46.5 | 63.9 | 61.3 | [Capturing User and Product Information for Document Level Sentiment Analysis with Deep Memory Network](http://aclweb.org/anthology/D17-1054) | - |
-| UPNN (Tang, Duyu, et al., 2016) | 43.5 | 59.6 | 60.8 | [Learning Semantic Representations of Users and Products for Document Level Sentiment Classification](http://aclweb.org/anthology/P15-1098) | [Link](http://ir.hit.edu.cn/~dytang/paper/acl2015/UserTextNN.zip) |
+| BiLSTM+CHIM (Amplayo, 2019) | 56.4 | 67.8 | 69.2 | [Rethinking Attribute Representation and Injection for Sentiment Classification](https://arxiv.org/pdf/1908.09590.pdf) | [Link](https://github.com/rktamplayo/CHIM) |
+| BiLSTM + linear-basis-cust (Kim, et al., 2019) | - | 67.1 | - | [Categorical Metadata Representation for Customized Text Classification](https://arxiv.org/pdf/1902.05196.pdf) | [Link](https://github.com/zizi1532/BasisCustomize) |
+| CMA (Ma, et al., 2017) | 54.0 | 66.4 | 67.6 | [Cascading Multiway Attention for Document-level Sentiment Classification](http://aclweb.org/anthology/I17-1064) | - |
+| DUPMN (Long, et al., 2018) | 53.9 | 66.2 | 67.6 | [Dual Memory Network Model for Biased Product Review Classification](http://aclweb.org/anthology/W18-6220) | - |
+| HCSC (Amplayo, et al., 2018) | 54.2 | 65.7 | - | [Cold-Start Aware User and Product Attention for Sentiment Classification](http://aclweb.org/anthology/P18-1236) | [Link](https://github.com/rktamplayo/HCSC) |
+| NSC (Chen, et al., 2016) | 53.3 | 65.0 | 66.7 | [Neural Sentiment Classification with User and Product Attention](http://aclweb.org/anthology/D16-1171) | [Link](https://github.com/thunlp/NSC) |
+| UPDMN (Dou, 2017) | 46.5 | 63.9 | 61.3 | [Capturing User and Product Information for Document Level Sentiment Analysis with Deep Memory Network](http://aclweb.org/anthology/D17-1054) | - |
+| UPNN (Tang, et al., 2016) | 43.5 | 59.6 | 60.8 | [Learning Semantic Representations of Users and Products for Document Level Sentiment Classification](http://aclweb.org/anthology/P15-1098) | [Link](http://ir.hit.edu.cn/~dytang/paper/acl2015/UserTextNN.zip) |
 
 # Subjectivity analysis
 
